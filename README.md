@@ -1,5 +1,5 @@
 # DaveGrohl 3.0 alpha
-A ~~Distributed~~ Password Cracker for OS X
+A ~~Distributed~~ Password Cracker for macOS
 
 ## What's new?
 Version 3.0 is a complete rewrite of DaveGrohl.  Version 2 was suffering from a severe case of code-stank and it will eventually be euthanized.  The goal is to create a completely modern object-oriented codebase and make it extremely easy to use for both the developer and the end user.  This code is currently in the **very** early stages, but will focus on a few central design goals.
@@ -7,7 +7,7 @@ Version 3.0 is a complete rewrite of DaveGrohl.  Version 2 was suffering from a 
 ### Design Goals
 
 * **Ease of Use** - At first the UI will mimic V2, but the user experience is the most important design aspect. Users at any level of expertise should easily be able to figure out how to compile, install and run Dave.
-* **Platform Independence** - It should compile on Mac OS X and the most common flavors of Linux (Ubuntu, Red Hat) with no modification.  Compiling on Windows is a plus but by no means a goal.
+* **Platform Independence** - It should compile on macOS and the most common flavors of Linux (Ubuntu, Red Hat) with no modification.  Compiling on Windows is a plus but by no means a goal.
 * **Code Independence** - It should require no external libraries outside of the C++ Standard Library to compile. If better libraries are available, Dave should auto-detect and link against them with no flags required. User experience should never be a sacrifice. 
 * **Self Documenting** - If anyone can’t figure out how to use Dave, it is at best a bug and at worst a fundamental design flaw. Dave should realize the user is having trouble offer help.  (The current UI is not necessarily the goal UI)
 * **Modern Codebase** - Dave should be completely object-oriented and using the most modern C++11/14 standards.  If dropping to raw C or even assembly would present a performance benefit, that code should be carefully implemented and encapsulated.  Any Objective-C should be replaced with Swift and ideally phased out completely.
@@ -46,7 +46,7 @@ MacBook-Pro:~/davegrohl$ sudo ./dave -u someuser
 Finished in 31.330 seconds / 1,318 guesses...
 42 guesses per second.
 ```
-In this example, I purposely set my password to one I knew Dave would guess early.  When using PBKDF2, OS X throttles the time it takes to hash a password.  This is great for password security, but bad for brute force attacks.
+In this example, I purposely set my password to one I knew Dave would guess early.  When using PBKDF2, macOS throttles the time it takes to hash a password.  This is great for password security, but bad for brute force attacks.
 
 Out of the box, Dave will not check every possible password because it is insanely impractical.  With no special arguments, Dave will check every password between 0 and 16 digits long using the default character set of 'aeorisn1tl2md0cp3hbuk45g9687yfwjvzxq'.  With these settings on my 8-core Macbook Pro, it would take longer than the age of the universe to check every possibility.
 
@@ -76,7 +76,7 @@ The time estimate is how long Dave will take to check every possibility, not how
 
 
 ## History
-DaveGrohl was initially created in early 2011 as a password hash extractor & companion tool to John the Ripper.  It's blossoming into a multithreaded distributed password cracker was a product of sheer curiosity/boredom.  Dave has always been aimed at brute-forcing OS X user passwords, although he's been known to get lost staring into a cloud of Linux machines.
+DaveGrohl was initially created in early 2011 as a password hash extractor & companion tool to John the Ripper.  It's blossoming into a multithreaded distributed password cracker was a product of sheer curiosity/boredom.  Dave has always been aimed at brute-forcing macOS user passwords, although he's been known to get lost staring into a cloud of Linux machines.
 
 Sadly, my day job as a ninja spy astronaut and my highly Scandinavian level of ethanol consumption has led to an old stanky code base.  In light of these facts, I've decided to unleash the stank upon the world in hopes that it brings joy and nerdgasms to whomever finds it.
 
@@ -90,7 +90,7 @@ MacBook-Pro:~$ git clone https://github.com/octomagon/davegrohl-old.git
 ## Why ~~Distributed~~?
 Distributed mode in V2 stopped working an OS or two ago.  I sadly haven't had the time to look into it, although it's probably something simple.
 
-Also while distributed mode was cool, it was not built to scale massively.  This is partly due to it's being tied to Mac OS X.  Who the hell wants to virtualize a thousand instances of OS X anyways?  Real scale means linux.  If DaveGrohl is destined to live on, it should be stripped of it's Cocoa and start embracing platform independence.
+Also while distributed mode was cool, it was not built to scale massively.  This is partly due to it's being tied to macOS.  Who the hell wants to virtualize a thousand instances of macOS anyways?  Real scale means linux.  If DaveGrohl is destined to live on, it should be stripped of it's Cocoa and start embracing platform independence.
 
 
 Not Windows of course...  Fuck Windows.
