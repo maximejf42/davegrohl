@@ -2,7 +2,8 @@
  * \file threading.h
  *
  * \brief Threading abstraction layer
- *
+ */
+/*
  *  Copyright (C) 2006-2015, ARM Limited, All Rights Reserved
  *  SPDX-License-Identifier: Apache-2.0
  *
@@ -81,6 +82,7 @@ void mbedtls_threading_set_alt( void (*mutex_init)( mbedtls_threading_mutex_t * 
 void mbedtls_threading_free_alt( void );
 #endif /* MBEDTLS_THREADING_ALT */
 
+#if defined(MBEDTLS_THREADING_C)
 /*
  * The function pointers for mutex_init, mutex_free, mutex_ and mutex_unlock
  *
@@ -94,8 +96,13 @@ extern int (*mbedtls_mutex_unlock)( mbedtls_threading_mutex_t *mutex );
 /*
  * Global mutexes
  */
+#if defined(MBEDTLS_FS_IO)
 extern mbedtls_threading_mutex_t mbedtls_threading_readdir_mutex;
+#endif
+#if defined(MBEDTLS_HAVE_TIME_DATE)
 extern mbedtls_threading_mutex_t mbedtls_threading_gmtime_mutex;
+#endif
+#endif /* MBEDTLS_THREADING_C */
 
 #ifdef __cplusplus
 }

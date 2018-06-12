@@ -17,7 +17,7 @@ extern "C" {  // This may be paranoia...
 #include "etc_shadow.h"
 #include "shadow_hash.h"
 
-#define VERS "3.0 alpha"
+#define VERS "3.01 alpha"
 
 static struct termios new_flags, old_flags;
 
